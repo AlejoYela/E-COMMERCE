@@ -1,11 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Box, Center } from "@chakra-ui/react";
-import { Flex, Spacer } from '@chakra-ui/react'
+import { Flex } from "@chakra-ui/react"
 
 
 export function TopBar() {
-    return (<Flex bg='black' w='100%' p={2} color='white' justifyContent={'space-between'} fontSize="xs">
+    return (<Flex bg="black" w="100%" p={2} color="white" justifyContent="space-between" fontSize="xs">
         <Flex gap="1.5rem">
             <Flex as={Link} href="#" alignItems="center" gap="0.5rem"><Image src="/ico-small-phone.svg" width={14} height={14} alt={""}></Image>+38 (050) 12 34 567</Flex>
             <Flex as={Link} href="#" alignItems="center" gap="0.5rem"><Image src="/ico-small-location.svg" width={14} height={14} alt={""}></Image>Ukraine, Kyiv,Khreshchatyk 1</Flex>

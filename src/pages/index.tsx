@@ -1,8 +1,8 @@
-import { GetServerSidePropsContext } from 'next';
-import Head from 'next/head'
-import { Button, ButtonGroup } from '@chakra-ui/react'
-import { Header } from '@/components/Header';
-import { TopBar } from '@/components/TopBar';
+import { GetServerSidePropsContext } from "next";
+import Head from "next/head"
+import { Button, ButtonGroup } from "@chakra-ui/react"
+import { Header } from "@/components/Header";
+import { TopBar } from "@/components/TopBar";
 
 type Product = {
   id: number;
@@ -17,7 +17,7 @@ type Product = {
   };
 }
 
-type Rating = Product['rating'];
+type Rating = Product["rating"];
 
 type Props = {
   products: Product[]
@@ -47,7 +47,7 @@ export default function Home({ products }) {
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  const products = await fetch('https://fakestoreapi.com/products')
+  const products = await fetch("https://fakestoreapi.com/products")
     .then(res => res.json())
   return {
     props: {
