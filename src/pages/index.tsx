@@ -1,5 +1,8 @@
 import { GetServerSidePropsContext } from 'next';
 import Head from 'next/head'
+import { Button, ButtonGroup } from '@chakra-ui/react'
+import { Header } from '@/components/Header';
+import { TopBar } from '@/components/TopBar';
 
 type Product = {
   id: number;
@@ -20,7 +23,7 @@ type Props = {
   products: Product[]
 }
 
-export default function Home({products}) {
+export default function Home({ products }) {
   return (
     <>
       <Head>
@@ -30,10 +33,13 @@ export default function Home({products}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
+        <TopBar></TopBar>
+        <Header></Header>
+        <Button>Button</Button>
         <ol>
-        {products.map(product => {
-          return <li key={product.id}>{product.title}</li>
-        })}
+          {products.map(product => {
+            return <li key={product.id}><strong>{product.title}</strong></li>
+          })}
         </ol>
       </main>
     </>
