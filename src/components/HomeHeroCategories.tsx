@@ -16,7 +16,7 @@ export function HomeHeroCategories({ categories }: Props) {
     <Grid
       templateColumns="540px 255px 255px"
       templateRows="200px 260px"
-      gap="1rem"
+      gap="30px"
     >
       {categories.map((cat, key) => {
         const slug = sluglify(cat);

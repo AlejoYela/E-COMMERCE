@@ -1,24 +1,38 @@
-import type { AppProps } from "next/app"
+import type { AppProps } from "next/app";
 
-import { ChakraProvider, extendTheme, defineStyleConfig } from "@chakra-ui/react"
+import {
+  ChakraProvider,
+  extendTheme,
+  defineStyleConfig,
+  defineStyle,
+} from "@chakra-ui/react";
 
-import "@fontsource/spartan/400.css"
-import "@fontsource/spartan/600.css"
+import "@fontsource/spartan/400.css";
+import "@fontsource/spartan/600.css";
+
+const sizes = {
+  lg: defineStyle({
+    maxW: "1110px",
+    p:0
+  }),
+};
+
+export const containerTheme = defineStyleConfig({ sizes });
 
 export const buttonTheme = defineStyleConfig({
   baseStyle: {
     fontWeight: "bold",
     textTransform: "uppercase",
     borderRadius: "none",
-    padding: "0 2.5rem"
+    padding: "0 2.5rem",
   },
   defaultProps: {
     colorScheme: "brand",
   },
-})
+});
 
 const theme = extendTheme({
-  colors:{
+  colors: {
     brand: {
       100: "#f1f1f1",
       200: "#d4d4d4",
@@ -29,20 +43,22 @@ const theme = extendTheme({
       700: "#474747",
       800: "#2a2a2a",
       900: "#0e0e0e",
-    }
+    },
   },
   fonts: {
     heading: `"Spartan", sans-serif`,
     body: `"Spartan", sans-serif`,
   },
   components: {
-    Button: buttonTheme
-  }
-})
-
+    Button: buttonTheme,
+    Container: containerTheme
+  },
+});
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <ChakraProvider theme={theme}>
-    <Component {...pageProps} />
-  </ChakraProvider>
+  return (
+    <ChakraProvider theme={theme}>
+      <Component {...pageProps} />
+    </ChakraProvider>
+  );
 }
